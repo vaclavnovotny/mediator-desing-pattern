@@ -1,3 +1,4 @@
+![.NET Core](https://github.com/vaclavnovotny/mediator-desing-pattern/workflows/.NET%20Core/badge.svg?branch=master)
 # Mediator Design Pattern
 
 This repository is for presentation purposes
