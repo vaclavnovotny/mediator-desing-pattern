@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>MediatorPattern.Application</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.2.2" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MediatorPattern.Domain\MediatorPattern.Domain.csproj" />
+    <ProjectReference Include="..\MediatorPattern.Persistence\MediatorPattern.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
