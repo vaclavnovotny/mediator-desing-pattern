@@ -1,25 +1,16 @@
 ﻿using FluentValidation;
+using MediatorPattern.Domain;
 
 namespace MediatorPattern.Application.Elements.Validators
 {
     public class CreateElementValidator : AbstractValidator<CreateElement>
     {
-        public CreateElementValidator()
+        public CreateElementValidator(IValidator<Element> validator)
         {
-            RuleFor(x => x.Element).Cascade(CascadeMode.Stop).NotNull()
-                .ChildRules(rules =>
-                {
-                    rules.RuleFor(r => r.ImageId).GreaterThan(0);
-                    rules.RuleFor(x => x.Name).NotEmpty();
-                    rules.RuleFor(x => x.Size).NotNull().ChildRules(sRules =>
-                    {
-                        sRules.RuleFor(r => r.Height).GreaterThan(0);
-                        sRules.RuleFor(r => r.Width).GreaterThan(0);
-                    });
-                    rules.RuleFor(x => x.Position).NotNull();
-                });
+            RuleFor(x => x.Element)
+                .Cascade(CascadeMode.Stop)
+                .NotNull()
+                .SetValidator(validator);
         }
     }
-
-    // live: do validator for delete element request with existence check
 }
